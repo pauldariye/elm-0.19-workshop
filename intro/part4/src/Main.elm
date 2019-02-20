@@ -11,6 +11,15 @@ import Html.Events exposing (onClick)
 -- MODEL
 
 
+type alias Article =
+    { title : String
+    , description : String
+    , body : String
+    , tags : List String
+    , slug : String
+    }
+
+
 type alias Model =
     { tags : List String
     , selectedTag : String
@@ -23,18 +32,13 @@ type alias Model =
        💡 HINT: You'll need to move the existing annotation to a `type alias`.
     -}
     , allArticles :
-        List
-            { title : String
-            , description : String
-            , body : String
-            , tags : List String
-            , slug : String
-            }
+        List Article
     }
 
 
 {-| 👉 TODO: Replace this comment with a type annotation for `initialModel`
 -}
+initialModel : { tags : List String, selectedTag : String, allArticles : List Article }
 initialModel =
     { tags = Article.tags
     , selectedTag = "elm"
